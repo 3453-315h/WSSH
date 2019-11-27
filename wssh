@@ -121,7 +121,7 @@ if [[ -z $p ]]; then echo -e "$basename$0: internal error -- you must specify a 
 
 bruteforce() {
 banner
-sshpass -p "$p" pssh -v -A -h $f -l $u -p $t -t 1 -O "UserKnownHostsFile=/dev/null" -O "StrictHostKeyChecking=no" -i "$c"
+sshpass -p "$p" pssh -v -A -h $f -l $u -p $t -t 1 -O "UserKnownHostsFile=/dev/null" -O "StrictHostKeyChecking=no" -i "$c" | grep -i 'SUCCESS\|FAILURE'
 }
 
 bruteforce
